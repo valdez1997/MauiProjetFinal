@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.RegisterPage"
+             >
+    <ScrollView>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              RowDefinitions="Auto,*" 
+              BackgroundColor="#ec1b23">
+            <Label Text="Register" TextColor="White" HorizontalOptions="Center" 
+                   VerticalOptions="Center" FontSize="25" FontAttributes="Bold"
+                   Margin="0,20,0,20"
+                   Grid.Row="0"/>
+            <Frame Grid.Row="1"
+                   BorderColor="#ec1b23"
+                   CornerRadius="50"
+                   Margin="0,0,0,-50"
+                   HasShadow="True">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowSpacing="0"
+                      Padding="20,0,20,0"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                    <Label Text="Nom" FontAttributes="Bold" Grid.Row="0" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="1" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="utilisateur.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="20"/>
+                            <Entry Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Votre mot de passe please dear" IsPassword="True" />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Prenom" FontAttributes="Bold" Grid.Row="2" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="3" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="utilisateur.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="20"/>
+                            <Entry Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Votre mot de passe please dear" IsPassword="True" />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Adresse Email" FontAttributes="Bold" Grid.Row="4" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="5" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="e_mail.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="18"
+                                         />
+                            <Entry Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Votre adresse Email" Keyboard="Email" />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Numéro" FontAttributes="Bold" Grid.Row="6" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="7" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="padlock.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="20"
+                                         />
+                            <Entry Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Numero"  />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Ville" FontAttributes="Bold" Grid.Row="8" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="9" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="hotel_house.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="20" />
+                            <Entry Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Numero"  />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Quartier" FontAttributes="Bold" Grid.Row="10" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="11" CornerRadius="20" BorderColor="#ec1b23" Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="hotel_house.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0" 
+                                         HeightRequest="20"/>
+                            <Entry  Grid.Column="1" HorizontalOptions="StartAndExpand" Placeholder="Entrer votre quartier"   />
+                        </Grid>
+                    </Frame>
+                    <Button Command="{Binding Register2Command}" Margin="0,20,0,30" Grid.Row="12" FontSize="20" Text="Suivant" FontAttributes="Bold" BackgroundColor="#ec1b23" CornerRadius="50" HeightRequest="50"/>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

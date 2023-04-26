@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.WelcomePage"
+             xmlns:model="clr-namespace:MauiBD.Model"
+             Shell.NavBarIsVisible="False"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             x:DataType="viewmodel:WelcomeViewModel"
+             Title="WelcomePage">
+    <Grid RowDefinitions="*,*">
+        <Frame Grid.Row="0" BorderColor="#eb123c" HeightRequest="300" WidthRequest="300" CornerRadius="150">
+            <Image 
+                   Source="keur.png" 
+                   Aspect="AspectFit" 
+                   HeightRequest="200"
+                   WidthRequest="200"/>
+        </Frame>
+        <StackLayout Grid.Row="1">
+            <Label Text="Un Don de Sang" HorizontalOptions="Center" TextColor="#eb123c" FontSize="30"/>
+            <Label Text="Une vie sauvée" HorizontalOptions="Center" FontSize="20" TextColor="Gray" FontAttributes="Bold"/>
+
+
+            <Button Text="Next" HeightRequest="80"
+                    WidthRequest="80"
+                    CornerRadius="80"
+                    BackgroundColor="#ec1b23"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Command="{Binding Login1Command}"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

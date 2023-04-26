@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.ProfilPage"
+             
+             xmlns:model="clr-namespace:MauiBD.Model"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             x:DataType="viewmodel:ProfilViewModel"
+             
+             Title="ProfilPage">
+    <VerticalStackLayout>
+    <RefreshView Command="{Binding ProfilCommand}" 
+                 IsRefreshing="{Binding IsRefreshing}">
+
+            <CollectionView ItemsSource="{Binding userprofil}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Label Text="{Binding userprofil.name}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        
+    </RefreshView>
+    <ActivityIndicator 
+        IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"/>
+        <Button Text="click" Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

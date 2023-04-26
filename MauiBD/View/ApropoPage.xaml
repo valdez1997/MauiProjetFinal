@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.ApropoPage"
+             Title="ApropoPage">
+    <VerticalStackLayout Spacing="20">
+        <Label Margin="0,10,0,10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="   Blood Donation" TextColor="#ec1b23"/>
+                    <Span Text=" est une plateforme numerique qui facilite les hopitaux dans l'acquisition du sang.
+                          " />
+
+
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label  Text="   Elle est née d'un sentiment d'impuissance qui a envahi une famille Camerounaise 
+lorsqu'elle a été confrontée au besoin et à l'urgence de trouver de devoir trouver 
+pour sauver la vie d'un proche en attente de transfusion sanguine." FontAttributes="Bold" FontSize="15"/>
+    </VerticalStackLayout>
+</ContentPage>

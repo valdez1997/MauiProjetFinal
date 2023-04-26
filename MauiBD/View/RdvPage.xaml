@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.RdvPage"
+             Title="RdvPage">
+    <ScrollView>
+        <Frame>
+            <Grid RowDefinitions="Auto,*">
+                <Label Grid.Row="0" Text="Jour de collecte de sang à l'hopital Sainte Etienne"/>
+                <StackLayout Grid.Row="1">
+                    <Label HorizontalOptions="Center" TextColor="#ec1b23" Text="Jour et heure de collecte de sang du centre le plus proche de vous"/>
+                    <Grid >
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox/>
+                            <Label Text="Lundi 09h-13h"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox/>
+                            <Label Text="Mercredi 12h-14h"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox/>
+                            <Label Text="Jeudi 12h-14h"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox/>
+                            <Label Text="Samedi 12h-14h"/>
+                        </StackLayout>
+                        <Button Text="Valider le rdv" CornerRadius="30" BackgroundColor="#ec1b23"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </ScrollView>
+</ContentPage>

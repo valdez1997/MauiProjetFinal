@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.LoginPage"
+             xmlns:model="clr-namespace:MauiBD.Model"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewmodel:LoginViewModel"
+             Title="LoginPage">
+    <ScrollView>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              RowDefinitions="Auto,*" 
+              BackgroundColor="#ec1b23">
+            <StackLayout Grid.Row="0" HorizontalOptions="Center">
+                <Image Margin="0,20"
+                       Aspect="AspectFit"
+                       HeightRequest="200"
+                       Source="logo4.png"
+                       WidthRequest="350"/>
+            </StackLayout>
+            <Frame Grid.Row="1"
+                   BorderColor="#ec1b23"
+                   CornerRadius="50"
+                   Margin="0,0,0,-50"
+                   HasShadow="True">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowSpacing="20"
+                      Padding="20,0,20,0"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                    <Label Grid.Row="0" FontSize="30" Text="Login"
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold" TextColor="#ec1b23"/>
+                    <Label Text="Email" FontAttributes="Bold" Grid.Row="1" 
+                           TextColor="#ec1b23"/>
+                    <Frame Grid.Row="2"
+                           CornerRadius="20" 
+                           BorderColor="#ec1b23"
+                           Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*">
+                            <ImageButton Source="email.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="18"
+                                         />
+                            <Entry Text="{Binding Email}" Grid.Column="1" HorizontalOptions="StartAndExpand" 
+                                    Placeholder="Valdezalliaslepipo@gmail.com" />
+                        </Grid>
+                    </Frame>
+                    <Label Text="Password" 
+                           FontAttributes="Bold"
+                           Grid.Row="3" TextColor="#ec1b23"/>
+                    <Frame Grid.Row="4" CornerRadius="20"
+                           BorderColor="#ec1b23"
+                           Padding="5,0" Margin="0,15">
+                        <Grid ColumnDefinitions="25,*,25">
+                            <ImageButton Source="fermercle.png"
+                                         Aspect="AspectFit"
+                                         Grid.Column="0"
+                                         HeightRequest="18"
+                                         />
+                            <Entry x:Name="mail" Text="{Binding Password}" Grid.Column="1"
+                                   HorizontalOptions="StartAndExpand"
+                                   Placeholder="Votre mot de passe please dear"
+                                   IsPassword="True" />
+                            <ImageButton Source="eye.png"
+                                         Grid.Column="2"
+                                         Aspect="AspectFit"
+                                         HeightRequest="20"/>
+                        </Grid>
+                    </Frame>
+                    <Label Grid.Row="5" Text="Mot de passe oublié"
+                           HorizontalOptions="EndAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EditPasswordCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button Grid.Row="6" Command="{Binding LoginCommand}" Text="Connexion" BackgroundColor="#ec1b23" FontAttributes="Bold" CornerRadius="30"/>
+                    <StackLayout Grid.Row="7">
+                        <Label  HorizontalOptions="Center" Margin="0,10,0,30" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                            </Label.GestureRecognizers>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Vous n'avez pas de compte?"/>
+                                    <Span Text="Register" TextColor="#ec1b23"/>
+                                    
+
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <Label Grid.Row="8" Margin="0,20"/>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

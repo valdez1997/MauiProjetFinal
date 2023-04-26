@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.CentreHospitalierPage"
+             xmlns:model="clr-namespace:MauiBD.Model"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             x:DataType="viewmodel:CenterHospitalViewModel"
+             Title="Les differents Hospitaux">
+    <RefreshView 
+               Command="{Binding GetHospitalCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+        <ScrollView>
+        <VerticalStackLayout Margin="10">
+                <Label Text="Selectionner votre centre " Margin="5" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                <CollectionView ItemsSource="{Binding Hospitals}"
+                                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type model:Hospital}">
+                            <VerticalStackLayout Padding="5">
+                                <Frame HasShadow="True" Margin="0,0"  BorderColor="#ec1b23">
+                                    <Grid ColumnDefinitions="Auto,*,120" Padding="0">
+                                        <Frame Grid.Column="0" BorderColor="#ec1b23" HeightRequest="40" WidthRequest="40" >
+                                            
+                                        </Frame>
+                                        <Label Text="{Binding id}"  Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                        <Label Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="15" Text="{Binding title}" FontAttributes="Bold"/>
+                                        <Button Grid.Column="2" FontAttributes="Bold" Text="Prendre rdv" CornerRadius="30" BackgroundColor="#ec1b23">
+                                            <Button.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                                            </Button.GestureRecognizers>
+                                        </Button>
+                                    </Grid>
+                                </Frame>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

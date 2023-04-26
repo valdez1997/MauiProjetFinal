@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:MauiBD.Model"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewmodel:MainViewModel"
+             x:Class="MauiBD.View.MainPage">
+
+    <StackLayout
+        VerticalOptions="Center"
+        Margin="10"
+        Spacing="20">
+        <Label 
+            Padding="0,30,0,0" 
+            FontAttributes="Bold"
+            Text="WELCOME !!!" 
+            HorizontalOptions="Center" 
+            FontSize="30" 
+            TextColor="#ec1b23"/>
+        <Image Source="doctor.png"/>
+        <Label HorizontalOptions="Center"
+               Text="Un Don de Sang"
+               FontSize="30" 
+               FontAttributes="Bold"
+               TextColor="#ec1b23"/>
+        <Frame BorderColor="#ec1b23"
+               HasShadow="True"
+               CornerRadius="30">
+            <Label FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Text="Donner du sang est un acte de solidarité qui sauve des vies..."/>
+        </Frame>
+        <Button
+            Text="Next"
+            TextColor="White"
+            WidthRequest="80" 
+            HeightRequest="80" 
+            BackgroundColor="#ec1b23"
+            FontAttributes="Bold"
+            Command="{Binding Welcome1Command}"
+            CornerRadius="80"/>
+    </StackLayout>
+
+</ContentPage>

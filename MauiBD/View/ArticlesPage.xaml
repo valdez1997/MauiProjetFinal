@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiBD.View.ArticlesPage"
+             xmlns:model="clr-namespace:MauiBD.Model"
+             xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+             x:DataType="viewmodel:ArticleViewModel"
+             Title="Articles sur le sang">
+   
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="*,Auto" 
+              ColumnSpacing="5"
+              >
+        <RefreshView Grid.ColumnSpan="2" 
+                      Command="{Binding GetArticleCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView 
+                            Margin="10,10" 
+                            SelectionMode="None"
+                x:Name="ArticleName"
+                            ItemsSource="{Binding Article}">
+                <CollectionView.ItemTemplate >
+                    <DataTemplate x:DataType="{x:Type model:Articles}">
+                        <Frame HasShadow="True" Margin="05">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ArticleViewModel}},Path=DetailCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <HorizontalStackLayout>
+                                    <Frame Margin="05"
+                                   HorizontalOptions="Start" 
+                                   BackgroundColor="#ec1b23"
+                                   CornerRadius="40"
+                                   BorderColor="#ec1b23" WidthRequest="40"
+                                   HeightRequest="40">
+                                        <ImageButton  Source="logo4.png" HeightRequest="60" WidthRequest="60" />
+                                    </Frame>
+                                    <Label Text="Blood Donation" VerticalOptions="Center" FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+                                <VerticalStackLayout >
+                                    <Grid>
+                                        <Image Source="{Binding image}" Aspect="AspectFit" />
+                                        <Frame Padding="10" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="#ec1b23" HasShadow="True" BorderColor="#ec1b23" HeightRequest="35" WidthRequest="110">
+                                            <Label  Text="{Binding created_at}" FontSize="12" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"   />
+                                        </Frame>
+                                    </Grid>
+                                    <Label Text="{Binding title}" Padding="5,15"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        <ActivityIndicator  IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                           Grid.ColumnSpan="2"
+                           Grid.RowSpan="2"/>
+    </Grid>
+   
+</ContentPage>

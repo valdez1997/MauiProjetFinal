@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiBD.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:MauiBD.Model"
+    xmlns:viewmodel="clr-namespace:MauiBD.ViewModel"
+    x:DataType="viewmodel:LoginViewModel"
+    xmlns:local="clr-namespace:MauiBD.View">
+
+    
+    <ShellContent
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <FlyoutItem
+        Title="Home"
+        Icon="hotel">
+        <Tab
+            Title="Accueil"
+            Icon="hotel">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:StartPage}"
+                Route="Home" />
+        </Tab>
+        <Tab
+            Title="Articles"
+            Icon="article">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:ArticlesPage}"
+                Route="Articles" />
+        </Tab>
+        <Tab
+            Title="Pre-dons"
+            Icon="eye">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:TestdePredonPage}"
+                Route="Predons" />
+        </Tab>
+        <Tab
+            Title="Profil"
+            Icon="utilisateur">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:ProfilPage}"
+                Route="Profile" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Mes Rendez-vous"
+        Icon="rdv.png">
+        <ShellContent
+            Route="RendezVous"
+            ContentTemplate="{DataTemplate local:RdvPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Tests de pre-dons"
+        Icon="eye">
+        <ShellContent
+            Route="Predons"
+            ContentTemplate="{DataTemplate local:TestdePredonPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem
+        Title="Modifier le mot de passe"
+        Icon="cle">
+        <ShellContent
+            Route="EditPassword"
+            ContentTemplate="{DataTemplate local:EditPasswordPage}"/>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="Parametres"
+        Icon="cle">
+        <ShellContent
+            Route="Parameter"
+            ContentTemplate="{DataTemplate local:ParameterPage}"/>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="A propos"
+        Icon="cle">
+        <ShellContent
+            Route="apropos"
+            ContentTemplate="{DataTemplate local:ApropoPage}"/>
+    </FlyoutItem>
+
+
+    <Shell.FlyoutHeader >
+        <VerticalStackLayout>
+            <Frame Margin="5,5" HorizontalOptions="Center" CornerRadius="150" HeightRequest="150" WidthRequest="150">
+                <Image Source="utilisateur"/>
+            </Frame>
+            <Label Text="{Binding AuthName}"/>
+
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+     
+    
+
+    <!--
+    
+    <ShellContent
+        Title="page" FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="Mes rendez vous" FlyoutItemIsVisible="True"
+        Icon="rendez_vous.png"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:RdvPage}"
+        Route="RdvPage" />
+    <ShellContent
+        Title="Mot de passe oublié" FlyoutItemIsVisible="True"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate local:TestdePredonPage}"
+        Route="TestdePredonPage" />
+    <ShellContent
+        Title="Modifier mot de passe" FlyoutItemIsVisible="True"
+        Shell.FlyoutBehavior="Disabled"
+        Icon="cle.png"
+        ContentTemplate="{DataTemplate local:EditPasswordPage}"
+        Route="EditPasswordPage" />
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsSingleItem" >
+        <FlyoutItem.Icon>
+            <FontImageSource Color="#eb123c"/>
+        </FlyoutItem.Icon>
+        <ShellContent
+            Title="Accueil"
+            Icon="hotel_house"
+            ContentTemplate="{DataTemplate local:StartPage}"
+            Route="StartPage" />
+        <ShellContent
+            Title="Articles" 
+            Icon="article.png"
+            ContentTemplate="{DataTemplate local:ArticlesPage}"
+            Route="ArticlesPage" />
+        <ShellContent
+            Title="Predon" 
+            Icon="eye"
+            ContentTemplate="{DataTemplate local:TestdePredonPage}"
+            Route="TestdePredonPage" />
+        <ShellContent
+            Title="Profil"
+            Icon="utilisateur"
+            ContentTemplate="{DataTemplate local:EditProfilPage}"
+            Route="EditProfilPage" />
+    </FlyoutItem  >
+    -->
+
+</Shell>
